@@ -2,12 +2,16 @@ package com.codeclan.todolist;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.ArrayList;
+
 import static org.junit.Assert.*;
 
 
 public class TaskListTest {
 
     TaskList list;
+    ArrayList<Task> testList;
     Task task1;
     Task task2;
     Task task3;
@@ -22,6 +26,7 @@ public class TaskListTest {
         list.addTask(task1);
         list.addTask(task2);
         list.addTask(task3);
+        testList = new ArrayList<Task>();
     }
 
     @Test
@@ -69,5 +74,25 @@ public class TaskListTest {
         list.markTaskAsIncomplete(task2);
         assertEquals(0, list.getNumberOfCompletedTasks());
     }
+
+    @Test
+    public void canOverWriteTask(){
+        testList = list.getList();
+        for (int i = 0; i < testList.size(); i++){
+            System.out.println(testList.get(i).getName() + " " + testList.get(i).getDescription());
+        }
+
+        task4 = new Task("Cooking", "Go on holiday", "Family", true);
+        list.overWriteTask(task1, task4);
+
+        testList = list.getList();
+        for (int i = 0; i < testList.size(); i++){
+            System.out.println(testList.get(i).getName() + " " + testList.get(i).getDescription());
+        }
+
+
+
+    }
+
 
 }

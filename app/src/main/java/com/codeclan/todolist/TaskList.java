@@ -62,4 +62,12 @@ public class TaskList {
         task.setDone(false);
     }
 
+    public void overWriteTask(Task oldTask, Task newTask){
+        list.set(list.indexOf(oldTask), newTask);
+    }
+
+
+
+
 }
+
