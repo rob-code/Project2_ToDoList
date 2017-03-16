@@ -11,6 +11,7 @@ public class TaskListTest {
     Task task1;
     Task task2;
     Task task3;
+    Task task4;
 
     @Before
     public void before(){
@@ -21,7 +22,6 @@ public class TaskListTest {
         list.addTask(task1);
         list.addTask(task2);
         list.addTask(task3);
-
     }
 
     @Test
@@ -37,9 +37,26 @@ public class TaskListTest {
     @Test
     public void canGetNumberOfIncompleteTasksInList(){
         assertEquals(2, list.getNumberOfIncompleteTasks());
-
     }
 
+    @Test
+    public void canCreateAndAddNewTaskToList(){
+        task4 = new Task("Go to movies", "Exciting", "Pictures", true);
+        list.addTask(task4);
+        assertEquals(4, list.getNumberOfTasks());
+    }
+
+    @Test
+    public void canDeleteAllCompletedTasks(){
+        list.deleteAllCompletedTasks();
+        assertEquals(2, list.getNumberOfTasks());
+    }
+
+    @Test
+    public void canDeleteAllTasks(){
+        list.deleteAllTasks();
+        assertEquals(0, list.getNumberOfTasks());
+    }
 
 
 }
