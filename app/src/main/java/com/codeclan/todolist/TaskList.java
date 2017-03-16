@@ -54,4 +54,12 @@ public class TaskList {
         list.clear();
     }
 
+    public void markTaskAsComplete(Task task){
+        task.setDone(true);
+    }
+
+    public void markTaskAsIncomplete(Task task){
+        task.setDone(false);
+    }
+
 }

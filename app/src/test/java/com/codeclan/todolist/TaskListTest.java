@@ -58,5 +58,16 @@ public class TaskListTest {
         assertEquals(0, list.getNumberOfTasks());
     }
 
+    @Test
+    public void canMarkTaskAsComplete(){
+        list.markTaskAsComplete(task1);
+        assertEquals(2, list.getNumberOfCompletedTasks());
+    }
+
+    @Test
+    public void canMarkTaskAsIncomplete(){
+        list.markTaskAsIncomplete(task2);
+        assertEquals(0, list.getNumberOfCompletedTasks());
+    }
 
 }
