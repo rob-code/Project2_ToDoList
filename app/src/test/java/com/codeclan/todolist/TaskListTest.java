@@ -26,17 +26,17 @@ public class TaskListTest {
 
     @Test
     public void canGetNumberOfTasksInList(){
-        assertEquals(3, list.numberOfTasks());
+        assertEquals(3, list.getNumberOfTasks());
     }
 
     @Test
     public void canGetNumberOfCompletedTasksInList(){
-        assertEquals(1,list.numberOfCompletedTasks());
+        assertEquals(1,list.getNumberOfCompletedTasks());
     }
 
     @Test
     public void canGetNumberOfIncompleteTasksInList(){
-        assertEquals(2, list.numberOfIncompleteTasks());
+        assertEquals(2, list.getNumberOfIncompleteTasks());
 
     }
 

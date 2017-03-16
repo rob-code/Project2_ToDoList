@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class TaskList {
 
-    private Task task;
     private ArrayList<Task> list;
 
     public TaskList() {
@@ -19,11 +18,11 @@ public class TaskList {
         list.add(task);
     }
 
-    public int numberOfTasks(){
+    public int getNumberOfTasks(){
         return list.size();
     }
 
-    public int numberOfCompletedTasks(){
+    public int getNumberOfCompletedTasks(){
         int count = 0;
         for (int i = 0; i < list.size(); i++){
             if (list.get(i).isDone() == true ){
@@ -33,7 +32,7 @@ public class TaskList {
         return count;
     }
 
-    public int numberOfIncompleteTasks(){
+    public int getNumberOfIncompleteTasks(){
         int count = 0;
         for (int i = 0; i < list.size(); i++){
             if (list.get(i).isDone() == false ){
