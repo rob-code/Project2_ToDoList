@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -52,13 +53,18 @@ public class ListActivity extends AppCompatActivity {
         listView.setAdapter(listAdapter);
     }
 
-    public void titleClicked(View textView){
+    public void onListNameClicked(View textView){
 
-        TextView title = (TextView) textView;
-        Log.d("clicked", "clicked!");
-        //Intent intent = new Intent(this, InfoActivity.class);
-        //intent.putExtra("knot_selected", title.getText().toString());
-        //startActivity(intent);
+        RelativeLayout title = (RelativeLayout) textView;
+        Intent intent = new Intent(this, ShowTaskDetailsActivity.class);
+        //intent.putExtra("task name", title.getText().toString());
+
+        //just testing out for the meantime
+        intent.putExtra("name", "task name stuff goes here");
+        intent.putExtra("description", "task description stuff goes here");
+        intent.putExtra("category", "task category stuff goes here");
+
+        startActivity(intent);
     }
 
 
