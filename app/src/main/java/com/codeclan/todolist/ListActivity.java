@@ -22,6 +22,9 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.task_list);
 
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.app_bar_menu);
+        setSupportActionBar(myToolbar);
+
         TaskList taskList = new TaskList();
         Task task1 = new Task("Shopping", "Get razor blades", "Personal", false);
         Task task2 = new Task("Wash Car", "Must get more soap", "Car", true);
@@ -70,9 +73,6 @@ public class ListActivity extends AppCompatActivity {
 
         startActivity(intent);
     }
-
-
-    //working with the add button - but it needs not to be an options menu!
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
