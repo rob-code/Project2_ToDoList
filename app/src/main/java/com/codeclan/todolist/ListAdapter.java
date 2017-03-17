@@ -28,20 +28,20 @@ public class ListAdapter extends ArrayAdapter<Task> {
 
         Task currentTask = getItem(position);
 
-        ImageView completionStatus (ImageView)listItemView.findViewById(R.id.image);
+        ImageView completionStatus = (ImageView)listItemView.findViewById(R.id.is_done_image);
 
         if (currentTask.isDone()) {
-            completionStatus.setImageResource(currentTask.getDoneFlag());
+            completionStatus.setImageResource(R.drawable.green_tick);
         }
         else
         {
-            completionStatus.setImageResource(currentTask.getNotDoneFlag());
+            completionStatus.setImageResource(R.drawable.white_tick);
         }
 
         TextView name = (TextView)listItemView.findViewById(R.id.name);
         name.setText(currentTask.getName().toString());
 
-
+        return listItemView;
 
     }
 
