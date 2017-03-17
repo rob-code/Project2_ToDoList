@@ -31,11 +31,11 @@ public class ListAdapter extends ArrayAdapter<Task> {
         ImageView completionStatus = (ImageView)listItemView.findViewById(R.id.is_done_image);
 
         if (currentTask.isDone()) {
-            completionStatus.setImageResource(R.drawable.green_tick);
+            completionStatus.setImageResource(R.drawable.ic_check_box_black_24dp);
         }
         else
         {
-            completionStatus.setImageResource(R.drawable.white_tick);
+            completionStatus.setImageResource(R.drawable.ic_check_box_outline_blank_black_24dp);
         }
 
         TextView name = (TextView)listItemView.findViewById(R.id.name);
