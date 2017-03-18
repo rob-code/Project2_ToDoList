@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -92,6 +93,8 @@ public class ListActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -115,6 +118,13 @@ public class ListActivity extends AppCompatActivity {
         Intent intent = new Intent(this, CreateNewTaskActivity.class);
         startActivity(intent);
     }
+
+
+
+
+
+
+
 
 
 }
