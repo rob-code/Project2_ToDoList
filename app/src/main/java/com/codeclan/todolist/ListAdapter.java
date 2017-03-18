@@ -41,6 +41,8 @@ public class ListAdapter extends ArrayAdapter<Task> {
         TextView name = (TextView)listItemView.findViewById(R.id.name);
         name.setText(currentTask.getName().toString());
 
+        listItemView.setTag(currentTask);
+
         return listItemView;
 
     }

@@ -14,6 +14,7 @@ public class ShowTaskDetailsActivity extends AppCompatActivity {
     TextView taskName;
     TextView taskDescription;
     TextView taskCategory;
+    TextView taskIsDone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,14 +31,24 @@ public class ShowTaskDetailsActivity extends AppCompatActivity {
         taskName = (TextView)findViewById(R.id.show_name);
         taskDescription = (TextView)findViewById(R.id.show_description);
         taskCategory = (TextView)findViewById(R.id.show_category);
+        taskIsDone = (TextView)findViewById(R.id.show_isDone);
 
         String name = extras.getString("name");
         String description = extras.getString("description");
         String category = extras.getString("category");
+        Boolean isDone = extras.getBoolean("isDone");
 
         taskName.setText(name);
         taskDescription.setText(description);
         taskCategory.setText(category);
+        taskIsDone.setText(isDone.toString());
+
+//        if(isDone == true) {
+//            taskIsDone.setText(@string/task_complete);
+//        }
+//        else {
+//            taskIsDone.setText("Task is not done yet");
+//        }
 
     }
 

@@ -60,16 +60,17 @@ public class ListActivity extends AppCompatActivity {
         listView.setAdapter(listAdapter);
     }
 
-    public void onListNameClicked(View textView){
+    public void onTaskItemClicked(View textView){
 
-        RelativeLayout title = (RelativeLayout) textView;
+        RelativeLayout item = (RelativeLayout) textView;
         Intent intent = new Intent(this, ShowTaskDetailsActivity.class);
-        //intent.putExtra("task name", title.getText().toString());
 
-        //just testing out for the meantime
-        intent.putExtra("name", "task name stuff goes here");
-        intent.putExtra("description", "task description stuff goes here");
-        intent.putExtra("category", "task category stuff goes here");
+        //Passing the detail of the task to ShowDetailsTaskActivity
+        Task t = (Task) item.getTag(); //we've passed the object through with the event
+        intent.putExtra("name", t.getName());
+        intent.putExtra("description", t.getDescription());
+        intent.putExtra("category", t.getCategory());
+        intent.putExtra("isDone", t.isDone());
 
         startActivity(intent);
     }
