@@ -1,6 +1,5 @@
 package com.codeclan.todolist;
 
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,6 +40,8 @@ public class ListAdapter extends ArrayAdapter<Task> {
         TextView name = (TextView)listItemView.findViewById(R.id.name);
         name.setText(currentTask.getName().toString());
 
+        //make sure the setTag method is set on the object that is actually generating the onClick
+        //event ... else it wont be passed through.
         listItemView.setTag(currentTask);
 
         return listItemView;

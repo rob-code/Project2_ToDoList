@@ -1,6 +1,8 @@
 package com.codeclan.todolist;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -12,10 +14,14 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
 public class ListActivity extends AppCompatActivity {
+
+    public static final String TASKS = "MyTasks";
+    ArrayList<Task> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,12 +58,23 @@ public class ListActivity extends AppCompatActivity {
         taskList.addTask(task11);
         taskList.addTask(task12);
 
-        ArrayList<Task> list = taskList.getList();
+        list = new ArrayList<Task>();
+        list = taskList.getList();
 
         ListAdapter listAdapter = new ListAdapter(this, list);
 
         ListView listView = (ListView)findViewById(R.id.list);
         listView.setAdapter(listAdapter);
+    }
+
+    //saving the TaskList to SharedPreferences ***
+    public void addListToSharedPreferences(View view){
+
+        SharedPreferences sharedPref = getSharedPreferences(TASKS, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        Gson gson = new Gson();
+        editor.putString("taskList", gson.toJson(list));
+        editor.apply(); //asynch save
     }
 
     public void onTaskItemClicked(View textView){
@@ -95,21 +112,8 @@ public class ListActivity extends AppCompatActivity {
     }
 
     public void onAddTaskClicked(){
-
-        //RelativeLayout title = (RelativeLayout) textView;
         Intent intent = new Intent(this, CreateNewTaskActivity.class);
-        //intent.putExtra("task name", title.getText().toString());
-
-        //just testing out for the meantime
-        intent.putExtra("name", "task name stuff goes here");
-        intent.putExtra("description", "task description stuff goes here");
-        intent.putExtra("category", "task category stuff goes here");
-
         startActivity(intent);
-
-
-
-
     }
 
 

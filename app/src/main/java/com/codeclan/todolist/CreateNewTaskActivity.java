@@ -13,6 +13,7 @@ public class CreateNewTaskActivity extends AppCompatActivity {
     EditText taskName;
     EditText taskDescription;
     EditText taskCategory;
+    Task newTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
