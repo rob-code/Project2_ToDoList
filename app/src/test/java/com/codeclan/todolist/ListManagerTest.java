@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import static org.junit.Assert.*;
 
 
-public class TaskListTest {
+public class ListManagerTest {
 
     ListManager listManager;
     ArrayList<Task> testList;
