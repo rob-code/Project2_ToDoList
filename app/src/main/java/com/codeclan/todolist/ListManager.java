@@ -2,11 +2,11 @@ package com.codeclan.todolist;
 
 import java.util.ArrayList;
 
-public class TaskList {
+public class ListManager {
 
     private ArrayList<Task> list;
 
-    public TaskList() {
+    public ListManager() {
         this.list = new ArrayList<Task>();
     }
 

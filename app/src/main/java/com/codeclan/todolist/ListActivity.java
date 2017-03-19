@@ -14,7 +14,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
+
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -24,7 +24,7 @@ public class ListActivity extends AppCompatActivity {
     public static final String TASKS = "MyTasks";
     private SeedList seedList;
     private ArrayList<Task> list;
-    private TaskList taskList;  //this should be the taskListManager
+    private ListManager listManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +46,7 @@ public class ListActivity extends AppCompatActivity {
         listView.setAdapter(listAdapter);
     }
 
-    //saving the TaskList to SharedPreferences ***
+    //saving the ListManager to SharedPreferences ***
     public void addListToSharedPreferences(View view){
 
         SharedPreferences sharedPref = getSharedPreferences(TASKS, Context.MODE_PRIVATE);

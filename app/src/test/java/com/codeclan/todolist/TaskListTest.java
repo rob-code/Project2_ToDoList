@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 
 public class TaskListTest {
 
-    TaskList list;
+    ListManager list;
     ArrayList<Task> testList;
     Task task1;
     Task task2;
@@ -22,7 +22,7 @@ public class TaskListTest {
         task1 = new Task("Shopping", "Get razor blades", "Personal", false);
         task2 = new Task("Wash Car", "Must get more soap", "Car", true);
         task3 = new Task("Make bed", "Why O WHy", "Bedroom", false);
-        list = new TaskList();
+        list = new ListManager();
         list.addTask(task1);
         list.addTask(task2);
         list.addTask(task3);
