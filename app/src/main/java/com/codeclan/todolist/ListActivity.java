@@ -24,7 +24,6 @@ public class ListActivity extends AppCompatActivity {
     public static final String TASKS = "MyTasks";
     private SeedList seedList;
     private ArrayList<Task> list;
-    private TaskListManager listManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,12 +33,10 @@ public class ListActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.app_bar_menu);
         setSupportActionBar(myToolbar);
 
-
-        //TODO: the working list needs to be populated and saved only if it does not exist
-        list = new ArrayList<Task>();
+        //TODO: the working list needs to be seeded and saved only if it does not exist
         seedList = new SeedList();
+        list = new ArrayList<Task>();
         list = seedList.getSeedList();
-        // list = taskList.getList(); this should really be the taskList manager if its needed
 
         ListAdapter listAdapter = new ListAdapter(this, list);
         ListView listView = (ListView)findViewById(R.id.list);
@@ -71,8 +68,6 @@ public class ListActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -97,8 +92,6 @@ public class ListActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
-
     public void onChangeTaskCompleteStatusClicked(View view) {
 
         //TODO: Make list item work properly
@@ -107,16 +100,8 @@ public class ListActivity extends AppCompatActivity {
         // update the task
         // redraw the list item?
 
-
         ImageView item = (ImageView) view;
-
         Log.d("its got here", "********** Its got here");
-
     }
-
-
-
-
-
 
 }
