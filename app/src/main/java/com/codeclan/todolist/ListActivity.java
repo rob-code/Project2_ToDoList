@@ -120,8 +120,15 @@ public class ListActivity extends AppCompatActivity {
     }
 
 
-    //So this does get the event. So how do we redraw the item?
-    public void onIsCompleteItemClicked(View view) {
+
+    public void onChangeTaskCompleteStatusClicked(View view) {
+
+        //TODO: Make list item work properly
+        // So this does get the event. So how do we:
+        // change the icon
+        // update the task
+        // redraw the list item?
+
 
         ImageView item = (ImageView) view;
 

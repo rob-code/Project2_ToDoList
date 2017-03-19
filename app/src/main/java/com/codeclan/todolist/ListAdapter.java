@@ -30,7 +30,7 @@ public class ListAdapter extends ArrayAdapter<Task> {
 
         Task currentTask = getItem(position);
 
-        ImageView completionStatus = (ImageView)listItemView.findViewById(R.id.is_done_image2);
+        ImageView completionStatus = (ImageView)listItemView.findViewById(R.id.is_done_image);
 
         if (currentTask.isDone()) {
             completionStatus.setImageResource(R.drawable.ic_check_box_black_24dp);
@@ -50,26 +50,5 @@ public class ListAdapter extends ArrayAdapter<Task> {
         return listItemView;
 
     }
-
-//      This event is not picked up here ... it is in ListActivity!
-//    public void onIsCompleteItemClicked(View view){
-//
-//        ImageView item = (ImageView) view;
-//
-//        System.out.println("Its got here!");
-//
-//        if (currentTask.isDone()) {
-//            currentTask.setDone(false);
-//            // completionStatus.setImageResource(R.drawable.ic_check_box_black_24dp);
-//
-//            completionStatus2.setImageResource(R.drawable.ic_check_box_outline_blank_black_24dp);
-//        }
-//        else
-//        {
-//            currentTask.setDone(true);
-//            completionStatus2.setImageResource(R.drawable.ic_check_box_black_24dp);
-//            // completionStatus.setImageResource(R.drawable.ic_check_box_outline_blank_black_24dp);
-//        }
-//    }
 
 }
