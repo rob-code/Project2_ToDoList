@@ -15,10 +15,6 @@ import java.util.ArrayList;
 
 public class ListAdapter extends ArrayAdapter<Task> {
 
-    Task currentTask;
-    ImageView completionStatus2;
-
-
     public ListAdapter(Context context, ArrayList<Task> tasks){
         super(context, 0, tasks);
     }
@@ -32,19 +28,16 @@ public class ListAdapter extends ArrayAdapter<Task> {
                     false);
         }
 
-        currentTask = getItem(position);
+        Task currentTask = getItem(position);
 
-        //ImageView completionStatus = (ImageView)listItemView.findViewById(R.id.is_done_image);
-        completionStatus2 = (ImageView) listItemView.findViewById(R.id.is_done_image2);
+        ImageView completionStatus = (ImageView)listItemView.findViewById(R.id.is_done_image2);
 
         if (currentTask.isDone()) {
-           // completionStatus.setImageResource(R.drawable.ic_check_box_black_24dp);
-            completionStatus2.setImageResource(R.drawable.ic_check_box_black_24dp);
+            completionStatus.setImageResource(R.drawable.ic_check_box_black_24dp);
         }
         else
         {
-           // completionStatus.setImageResource(R.drawable.ic_check_box_outline_blank_black_24dp);
-            completionStatus2.setImageResource(R.drawable.ic_check_box_outline_blank_black_24dp);
+            completionStatus.setImageResource(R.drawable.ic_check_box_outline_blank_black_24dp);
         }
 
         TextView name = (TextView)listItemView.findViewById(R.id.name);
@@ -58,24 +51,25 @@ public class ListAdapter extends ArrayAdapter<Task> {
 
     }
 
-    public void onIsCompleteItemClicked(View view){
-
-        ImageView item = (ImageView) view;
-
-        System.out.println("Its got here!");
-
-        if (currentTask.isDone()) {
-            currentTask.setDone(false);
-            // completionStatus.setImageResource(R.drawable.ic_check_box_black_24dp);
-
-            completionStatus2.setImageResource(R.drawable.ic_check_box_outline_blank_black_24dp);
-        }
-        else
-        {
-            currentTask.setDone(true);
-            completionStatus2.setImageResource(R.drawable.ic_check_box_black_24dp);
-            // completionStatus.setImageResource(R.drawable.ic_check_box_outline_blank_black_24dp);
-        }
-    }
+//      This event is not picked up here ... it is in ListActivity!
+//    public void onIsCompleteItemClicked(View view){
+//
+//        ImageView item = (ImageView) view;
+//
+//        System.out.println("Its got here!");
+//
+//        if (currentTask.isDone()) {
+//            currentTask.setDone(false);
+//            // completionStatus.setImageResource(R.drawable.ic_check_box_black_24dp);
+//
+//            completionStatus2.setImageResource(R.drawable.ic_check_box_outline_blank_black_24dp);
+//        }
+//        else
+//        {
+//            currentTask.setDone(true);
+//            completionStatus2.setImageResource(R.drawable.ic_check_box_black_24dp);
+//            // completionStatus.setImageResource(R.drawable.ic_check_box_outline_blank_black_24dp);
+//        }
+//    }
 
 }

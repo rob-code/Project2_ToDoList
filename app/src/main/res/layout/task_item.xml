@@ -28,7 +28,8 @@
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
         android:onClick="onIsCompleteItemClicked"
-        tools:context="com.codeclan.todolist.ListAdapter"/>
+        tools:context="com.codeclan.todolist.ListAdapter"
+        />
 
     <!--<ImageView-->
         <!--android:id="@+id/is_done_image"-->

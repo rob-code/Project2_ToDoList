@@ -120,7 +120,14 @@ public class ListActivity extends AppCompatActivity {
     }
 
 
+    //So this does get the event. So how do we redraw the item?
+    public void onIsCompleteItemClicked(View view) {
 
+        ImageView item = (ImageView) view;
+
+        Log.d("its got here", "********** Its got here");
+
+    }
 
 
 
