@@ -24,7 +24,7 @@ public class ListActivity extends AppCompatActivity {
     public static final String TASKS = "MyTasks";
     private SeedList seedList;
     private ArrayList<Task> list;
-    private ListManager listManager;
+    private TaskListManager listManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +46,7 @@ public class ListActivity extends AppCompatActivity {
         listView.setAdapter(listAdapter);
     }
 
-    //saving the ListManager to SharedPreferences ***
+    //saving the TaskListManager to SharedPreferences ***
     public void addListToSharedPreferences(View view){
 
         SharedPreferences sharedPref = getSharedPreferences(TASKS, Context.MODE_PRIVATE);

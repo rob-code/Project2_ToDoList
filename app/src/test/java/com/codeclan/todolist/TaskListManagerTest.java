@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import static org.junit.Assert.*;
 
 
-public class ListManagerTest {
+public class TaskListManagerTest {
 
-    ListManager listManager;
+    TaskListManager listManager;
     ArrayList<Task> testList;
     Task task1;
     Task task2;
@@ -28,7 +28,7 @@ public class ListManagerTest {
         testList.add(task2);
         testList.add(task3);
 
-        listManager = new ListManager(testList);
+        listManager = new TaskListManager(testList);
     }
 
     @Test
