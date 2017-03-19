@@ -34,6 +34,8 @@ public class ListActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.app_bar_menu);
         setSupportActionBar(myToolbar);
 
+
+        //TODO: the working list needs to be populated and saved only if it does not exist
         list = new ArrayList<Task>();
         seedList = new SeedList();
         list = seedList.getSeedList();
