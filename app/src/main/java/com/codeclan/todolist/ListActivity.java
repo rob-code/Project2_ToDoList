@@ -22,7 +22,9 @@ import java.util.ArrayList;
 public class ListActivity extends AppCompatActivity {
 
     public static final String TASKS = "MyTasks";
-    ArrayList<Task> list;
+    private SeedList seedList;
+    private ArrayList<Task> list;
+    private TaskList taskList;  //this should be the taskListManager
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,38 +34,12 @@ public class ListActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.app_bar_menu);
         setSupportActionBar(myToolbar);
 
-        TaskList taskList = new TaskList();
-        Task task1 = new Task("Shopping", "Get razor blades", "Personal", false);
-        Task task2 = new Task("Wash Car", "Must get more soap", "Car", true);
-        Task task3 = new Task("Wash Car", "Must get more soap", "Car", true);
-        Task task4 = new Task("Wash Car", "Must get more soap", "Car", false);
-        Task task5 = new Task("Wash Car", "Must get more soap", "Car", true);
-        Task task6 = new Task("Wash Car", "Must get more soap", "Car", true);
-        Task task7 = new Task("Wash Car", "Must get more soap", "Car", false);
-        Task task8 = new Task("Wash Car", "Must get more soap", "Car", false);
-        Task task9 = new Task("Wash Car", "Must get more soap", "Car", true);
-        Task task10 = new Task("Wash Car", "Must get more soap", "Car", true);
-        Task task11 = new Task("Wash Car", "Must get more soap", "Car", true);
-        Task task12 = new Task("Wash Car", "Must get more soap", "Car", true);
-
-        taskList.addTask(task1);
-        taskList.addTask(task2);
-        taskList.addTask(task3);
-        taskList.addTask(task4);
-        taskList.addTask(task5);
-        taskList.addTask(task6);
-        taskList.addTask(task7);
-        taskList.addTask(task8);
-        taskList.addTask(task9);
-        taskList.addTask(task10);
-        taskList.addTask(task11);
-        taskList.addTask(task12);
-
         list = new ArrayList<Task>();
-        list = taskList.getList();
+        seedList = new SeedList();
+        list = seedList.getSeedList();
+        // list = taskList.getList(); this should really be the taskList manager if its needed
 
         ListAdapter listAdapter = new ListAdapter(this, list);
-
         ListView listView = (ListView)findViewById(R.id.list);
         listView.setAdapter(listAdapter);
     }

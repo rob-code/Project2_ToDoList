@@ -10,7 +10,8 @@ public class SeedList {
 
     public SeedList() {
 
-        ArrayList<Task> seedList = new ArrayList<Task>();
+        seedList = new ArrayList<Task>();
+
         Task task1 = new Task("Shopping", "Get razor blades", "Personal", false);
         Task task2 = new Task("Wash Car", "Must get more soap", "Car", true);
         Task task3 = new Task("Wash Car", "Must get more soap", "Car", true);
