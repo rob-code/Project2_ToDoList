@@ -6,8 +6,8 @@ public class ListManager {
 
     private ArrayList<Task> list;
 
-    public ListManager() {
-        this.list = new ArrayList<Task>();
+    public ListManager(ArrayList<Task> list) {
+        this.list = list;
     }
 
     public ArrayList<Task> getList() {
