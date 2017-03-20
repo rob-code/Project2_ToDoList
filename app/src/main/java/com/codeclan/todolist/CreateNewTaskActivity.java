@@ -24,7 +24,6 @@ public class CreateNewTaskActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.app_bar_menu);
         setSupportActionBar(myToolbar);
 
-
         taskName = (EditText)findViewById(R.id.input_name);
         taskDescription = (EditText)findViewById(R.id.input_description);
         taskCategory = (EditText)findViewById(R.id.input_category);

@@ -18,6 +18,7 @@
 
     <EditText
         android:id="@+id/input_name"
+        android:hint="@string/create_name_hint"
         android:textSize="22dp"
         android:layout_marginTop="50dp"
         android:textStyle="bold"
@@ -29,6 +30,7 @@
 
     <EditText
         android:id="@+id/input_description"
+        android:hint="@string/create_description_hint"
         android:textSize="22dp"
         android:layout_marginTop="25dp"
         android:textStyle="bold"
@@ -40,6 +42,7 @@
 
     <EditText
         android:id="@+id/input_category"
+        android:hint="@string/create_category_hint"
         android:textSize="22dp"
         android:layout_marginTop="25dp"
         android:textStyle="bold"

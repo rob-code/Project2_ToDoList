@@ -24,6 +24,8 @@ public class ListActivity extends AppCompatActivity {
     public static final String TASKS = "MyTasks";
     private SeedList seedList;
     private ArrayList<Task> list;
+    private SharedPreferences sharedPrefs;
+    private ListSharedHistory sharedHistory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,24 +35,19 @@ public class ListActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.app_bar_menu);
         setSupportActionBar(myToolbar);
 
-        //TODO: the working list needs to be seeded and saved only if it does not exist
-        seedList = new SeedList();
         list = new ArrayList<Task>();
-        list = seedList.getSeedList();
+
+//        seedList = new SeedList();
+//        list = seedList.getSeedList();
+
+        //TODO: the working list needs to be seeded and saved only if it does not exist
+        sharedPrefs = getSharedPreferences(TASKS, Context.MODE_PRIVATE);
+        sharedHistory = new ListSharedHistory(sharedPrefs);
+        list = sharedHistory.getList();
 
         ListAdapter listAdapter = new ListAdapter(this, list);
         ListView listView = (ListView)findViewById(R.id.list);
         listView.setAdapter(listAdapter);
-    }
-
-    //saving the TaskListManager to SharedPreferences ***
-    public void addListToSharedPreferences(View view){
-
-        SharedPreferences sharedPref = getSharedPreferences(TASKS, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
-        Gson gson = new Gson();
-        editor.putString("taskList", gson.toJson(list));
-        editor.apply(); //asynch save
     }
 
     public void onTaskItemClicked(View textView){
