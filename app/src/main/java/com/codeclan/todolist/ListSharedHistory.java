@@ -27,6 +27,7 @@ public class ListSharedHistory {
 
         SharedPreferences.Editor editor = sharedPrefs.edit();
         Gson gson = new Gson();
+
         String retrievedTaskList = sharedPrefs.getString("seedList", "Nothing here");
 
         if (retrievedTaskList.equals("Nothing here")){
@@ -36,8 +37,6 @@ public class ListSharedHistory {
             taskList = seedList.getSeedList();
             editor.putString("taskList", gson.toJson(taskList));
             editor.apply();
-
-
         }
         else if (retrievedTaskList.equals("seedList")){
 
