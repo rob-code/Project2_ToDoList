@@ -36,8 +36,6 @@ public class ListActivity extends AppCompatActivity {
         ListSharedHistory sharedHistory = new ListSharedHistory(sharedPrefs);
         ArrayList<Task> list = sharedHistory.getList();
 
-        Log.d("the list array size BEFORE ADAPTER is : ", String.valueOf(list.size()));
-
         ListAdapter listAdapter = new ListAdapter(this, list);
         ListView listView = (ListView)findViewById(R.id.list);
         listView.setAdapter(listAdapter);
