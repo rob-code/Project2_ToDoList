@@ -82,14 +82,26 @@ public class ListActivity extends AppCompatActivity {
 
     public void onChangeTaskCompleteStatusClicked(View view) {
 
-        //TODO: Make list item work properly
-        // So this does get the event. So how do we:
-        // change the icon
-        // update the task
-        // redraw the list item?
-
         ImageView item = (ImageView) view;
-        Log.d("its got here", "********** Its got here");
+
+        SharedPreferences sharedPrefs = getSharedPreferences(TASKS, Context.MODE_PRIVATE);
+        ListSharedHistory sharedHistory = new ListSharedHistory(sharedPrefs);
+        ArrayList<Task> list = sharedHistory.getList();
+
+        Task t = (Task)item.getTag();
+
+        if (t.isDone()){
+            item.setImageResource(R.drawable.ic_check_box_outline_blank_black_24dp);
+            sharedHistory.markAsFalse(list, (Task) item.getTag());
+        }
+        else
+        {
+            item.setImageResource(R.drawable.ic_check_box_black_24dp);
+            sharedHistory.markAsTrue(list, (Task) item.getTag());
+        }
+
+        item.refreshDrawableState();
+
     }
 
 }

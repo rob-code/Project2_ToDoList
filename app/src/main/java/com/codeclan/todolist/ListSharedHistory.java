@@ -59,4 +59,18 @@ public class ListSharedHistory {
         editor.apply();
     }
 
+    public void markAsTrue(ArrayList<Task> list, Task task){
+        taskListManager = new TaskListManager(list);
+        taskListManager.markTaskAsComplete(task);
+
+    }
+
+    public void markAsFalse(ArrayList<Task> list, Task task){
+        taskListManager = new TaskListManager(list);
+        taskListManager.markTaskAsIncomplete(task);
+
+    }
+
+
+
 }

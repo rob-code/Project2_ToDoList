@@ -31,6 +31,7 @@ public class ListAdapter extends ArrayAdapter<Task> {
         Task currentTask = getItem(position);
 
         ImageView completionStatus = (ImageView)listItemView.findViewById(R.id.is_done_image);
+        completionStatus.setTag(currentTask);
 
         if (currentTask.isDone()) {
             completionStatus.setImageResource(R.drawable.ic_check_box_black_24dp);
