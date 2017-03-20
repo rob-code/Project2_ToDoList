@@ -16,6 +16,7 @@ public class ListSharedHistory {
     private SharedPreferences sharedPrefs;
     private ArrayList<Task> taskList;
     private SeedList seedList;
+    private TaskListManager taskListManager;
 
     public ListSharedHistory(SharedPreferences sharedPrefs){
 
@@ -49,40 +50,17 @@ public class ListSharedHistory {
 
     }
 
+    public void addTaskToList(ArrayList<Task> list, Task task){
 
+            taskListManager = new TaskListManager(list);
+            taskListManager.addTask(task);
+            ArrayList<Task> newList = new ArrayList<Task>();
+            newList = taskListManager.getList();
+            Gson gson = new Gson();
 
-
-//    public boolean checkSharedHistoryExists(){
-//
-//
-//    }
-
-
-    public void seedListIfNoneExists(){
-
-
-    }
-
-
-
-
-
-//    public void saveListInSharedHistory(ArrayList<Task>){
-//
-//        public void updateLog(SharedPreferences sharedPref, WorkoutLog log){
-//            Gson gson = new Gson();
-//            this.workoutLog = log;
-//            SharedPreferences.Editor editor = sharedPref.edit();
-//            editor.putString("WorkoutLog", gson.toJson(workoutLog));
-//            editor.apply();
-//        }
-//
-//
-//
-//    }
-
-
-
-
+            SharedPreferences.Editor editor = sharedPrefs.edit();
+            editor.putString("seedList", gson.toJson(newList));
+            editor.apply();
+        }
 
 }
