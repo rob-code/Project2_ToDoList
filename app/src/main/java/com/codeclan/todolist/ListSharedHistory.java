@@ -33,20 +33,25 @@ public class ListSharedHistory {
 
         if (retrievedTaskList.equals("Nothing here")){
 
-            //seed the list and make the taskList = seedList
+            //seed the list
             seedList = new SeedList();
-            taskList = seedList.getSeedList();
-            editor.putString("taskList", gson.toJson(taskList));
+            editor.putString("seedList", gson.toJson(seedList.getSeedList()));
             editor.apply();
+            //return seedList.getSeedList();
+
         }
         else if (retrievedTaskList.equals("seedList")){
 
             // recover the taskList from SharedPrefrences
             TypeToken<ArrayList<Task>> taskArrayList = new TypeToken<ArrayList<Task>>(){};
-            ArrayList<Task> taskList = gson.fromJson(retrievedTaskList, taskArrayList.getType());
+            ArrayList<Task> myTasks = gson.fromJson(retrievedTaskList, taskArrayList.getType());
+            return myTasks;
         }
 
-        return taskList;
+            Task task = new Task("a simple task", "a task", "test", false);
+            taskList = new ArrayList<Task>();
+            taskList.add(task);
+            return taskList;
 
     }
 
@@ -54,12 +59,12 @@ public class ListSharedHistory {
 
             taskListManager = new TaskListManager(list);
             taskListManager.addTask(task);
-            ArrayList<Task> sdList = new ArrayList<Task>();
-            sdList = taskListManager.getList();
+            ArrayList<Task> seedList = new ArrayList<Task>();
+            seedList = taskListManager.getList();
 
             Gson gson = new Gson();
             SharedPreferences.Editor editor = sharedPrefs.edit();
-            editor.putString("seedList", gson.toJson(sdList));
+            editor.putString("seedList", gson.toJson(seedList));
             editor.apply();
         }
 

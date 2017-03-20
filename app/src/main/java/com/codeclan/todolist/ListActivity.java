@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 public class ListActivity extends AppCompatActivity {
 
-    public static final String TASKS = "MyTasks";
+    public static final String TASKS = "myTasks";
     private SeedList seedList;
     private ArrayList<Task> list;
     private SharedPreferences sharedPrefs;
