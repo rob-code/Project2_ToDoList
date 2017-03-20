@@ -1,6 +1,7 @@
 package com.codeclan.todolist;
 
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -15,7 +16,7 @@ public class ListSharedHistory {
 
     private SharedPreferences sharedPrefs;
     private ArrayList<Task> taskList;
-    private SeedList seedList;
+    private SeedTasks seedList;
     private TaskListManager taskListManager;
 
     public ListSharedHistory(SharedPreferences sharedPrefs){
@@ -27,31 +28,28 @@ public class ListSharedHistory {
     public ArrayList<Task> getList(){
 
         SharedPreferences.Editor editor = sharedPrefs.edit();
+        String retrievedTaskList = sharedPrefs.getString("taskList", "Nothing here");
         Gson gson = new Gson();
 
-        String retrievedTaskList = sharedPrefs.getString("seedList", "Nothing here");
-
         if (retrievedTaskList.equals("Nothing here")){
-
             //seed the list
-            seedList = new SeedList();
-            editor.putString("seedList", gson.toJson(seedList.getSeedList()));
+            seedList = new SeedTasks();
+            editor.putString("taskList", gson.toJson(seedList.getSeedTasks()));
             editor.apply();
-            //return seedList.getSeedList();
-
-        }
-        else if (retrievedTaskList.equals("seedList")){
-
-            // recover the taskList from SharedPrefrences
-            TypeToken<ArrayList<Task>> taskArrayList = new TypeToken<ArrayList<Task>>(){};
-            ArrayList<Task> myTasks = gson.fromJson(retrievedTaskList, taskArrayList.getType());
-            return myTasks;
         }
 
-            Task task = new Task("a simple task", "a task", "test", false);
-            taskList = new ArrayList<Task>();
-            taskList.add(task);
-            return taskList;
+        // recover the taskList from SharedPrefrences
+        TypeToken<ArrayList<Task>> taskArrayList = new TypeToken<ArrayList<Task>>(){};
+//        Log.d("retrievedTaskList is ", retrievedTaskList);
+        taskList = gson.fromJson(retrievedTaskList, taskArrayList.getType());
+
+        ArrayList<Task> t = taskList;
+
+        for (int i = 0; i < t.size(); i++){
+            System.out.println(t.get(i).getName().toString());
+        }
+
+        return taskList;
 
     }
 

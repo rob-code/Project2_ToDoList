@@ -15,14 +15,11 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
-import com.google.gson.Gson;
-
 import java.util.ArrayList;
 
 public class ListActivity extends AppCompatActivity {
 
     public static final String TASKS = "myTasks";
-    private SeedList seedList;
     private ArrayList<Task> list;
     private SharedPreferences sharedPrefs;
     private ListSharedHistory sharedHistory;
@@ -37,7 +34,7 @@ public class ListActivity extends AppCompatActivity {
 
         list = new ArrayList<Task>();
 
-//        seedList = new SeedList();
+//        seedList = new SeedTasks();
 //        list = seedList.getSeedList();
 
         //TODO: the working list needs to be seeded and saved only if it does not exist
