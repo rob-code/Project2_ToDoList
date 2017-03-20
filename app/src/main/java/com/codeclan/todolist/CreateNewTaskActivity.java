@@ -20,7 +20,7 @@ public class CreateNewTaskActivity extends AppCompatActivity {
     private EditText taskCategory;
     private Task task;
 
-    public static final String TASKS = "MyTasks";
+    public static final String TASKS = "myTasks";
     private SharedPreferences sharedPrefs;
     private ListSharedHistory sharedHistory;
     private ArrayList<Task> list;

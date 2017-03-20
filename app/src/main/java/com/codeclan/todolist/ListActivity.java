@@ -32,15 +32,6 @@ public class ListActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.app_bar_menu);
         setSupportActionBar(myToolbar);
 
-//        seedList = new SeedTasks();
-//        list = seedList.getSeedList();
-
-        //ArrayList<Task> list = new ArrayList<Task>();
-
-//        sharedPrefs = getSharedPreferences(TASKS, Context.MODE_PRIVATE);
-//        sharedHistory = new ListSharedHistory(sharedPrefs);
-//        list = sharedHistory.getList();
-
         SharedPreferences sharedPrefs = getSharedPreferences(TASKS, Context.MODE_PRIVATE);
         ListSharedHistory sharedHistory = new ListSharedHistory(sharedPrefs);
         ArrayList<Task> list = sharedHistory.getList();
