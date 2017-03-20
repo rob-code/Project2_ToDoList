@@ -16,7 +16,6 @@ public class ListSharedHistory {
 
     private SharedPreferences sharedPrefs;
     private ArrayList<Task> taskList;
-    private SeedTasks seedList;
     private TaskListManager taskListManager;
 
     public ListSharedHistory(SharedPreferences sharedPrefs){
@@ -28,12 +27,16 @@ public class ListSharedHistory {
     public ArrayList<Task> getList(){
 
         SharedPreferences.Editor editor = sharedPrefs.edit();
+
         String retrievedTaskList = sharedPrefs.getString("taskList", "Nothing here");
+
         Gson gson = new Gson();
 
         if (retrievedTaskList.equals("Nothing here")){
             //seed the list
-            seedList = new SeedTasks();
+
+            Log.d("once only", "once only" );
+            SeedTasks seedList = new SeedTasks();
             editor.putString("taskList", gson.toJson(seedList.getSeedTasks()));
             editor.apply();
         }
@@ -43,26 +46,22 @@ public class ListSharedHistory {
 //        Log.d("retrievedTaskList is ", retrievedTaskList);
         taskList = gson.fromJson(retrievedTaskList, taskArrayList.getType());
 
-        ArrayList<Task> t = taskList;
-
-        for (int i = 0; i < t.size(); i++){
-            System.out.println(t.get(i).getName().toString());
-        }
+        Log.d("tasklist size after the task has been appended", String.valueOf(taskList.size()));
 
         return taskList;
 
     }
 
-    public void addTaskToList(ArrayList<Task> list, Task task){
+    public void addTask(ArrayList<Task> list, Task task){
 
+            //make the new list by appending the new task to the saved list
             taskListManager = new TaskListManager(list);
             taskListManager.addTask(task);
-            ArrayList<Task> seedList = new ArrayList<Task>();
-            seedList = taskListManager.getList();
+            ArrayList<Task> newList = taskListManager.getList();
 
             Gson gson = new Gson();
             SharedPreferences.Editor editor = sharedPrefs.edit();
-            editor.putString("seedList", gson.toJson(seedList));
+            editor.putString("taskList", gson.toJson(newList));
             editor.apply();
         }
 

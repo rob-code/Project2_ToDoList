@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -47,11 +48,21 @@ public class CreateNewTaskActivity extends AppCompatActivity {
         String category = taskCategory.getText().toString();
         task = new Task(name, description, category, false);
 
+        Log.d("it got here :", "****" + task.getName() + " " + task.getDescription());
+
+
         //TO DO - got to actually save the new task...
         sharedPrefs = getSharedPreferences(TASKS, Context.MODE_PRIVATE);
         sharedHistory = new ListSharedHistory(sharedPrefs);
         list = sharedHistory.getList();
-        sharedHistory.addTaskToList(list, task);
+
+        Log.d("the list array size is : ", String.valueOf(list.size()));
+
+
+        sharedHistory.addTask(list, task);
+
+        list = sharedHistory.getList();
+        Log.d("the list array size is : ", String.valueOf(list.size()));
 
         Toast.makeText(CreateNewTaskActivity.this, "Task saved", Toast.LENGTH_SHORT).show();
 

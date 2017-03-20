@@ -15,14 +15,14 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import java.util.ArrayList;
 
 public class ListActivity extends AppCompatActivity {
 
     public static final String TASKS = "myTasks";
-    private ArrayList<Task> list;
-    private SharedPreferences sharedPrefs;
-    private ListSharedHistory sharedHistory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,15 +32,20 @@ public class ListActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.app_bar_menu);
         setSupportActionBar(myToolbar);
 
-        list = new ArrayList<Task>();
-
 //        seedList = new SeedTasks();
 //        list = seedList.getSeedList();
 
-        //TODO: the working list needs to be seeded and saved only if it does not exist
-        sharedPrefs = getSharedPreferences(TASKS, Context.MODE_PRIVATE);
-        sharedHistory = new ListSharedHistory(sharedPrefs);
-        list = sharedHistory.getList();
+        //ArrayList<Task> list = new ArrayList<Task>();
+
+//        sharedPrefs = getSharedPreferences(TASKS, Context.MODE_PRIVATE);
+//        sharedHistory = new ListSharedHistory(sharedPrefs);
+//        list = sharedHistory.getList();
+
+        SharedPreferences sharedPrefs = getSharedPreferences(TASKS, Context.MODE_PRIVATE);
+        ListSharedHistory sharedHistory = new ListSharedHistory(sharedPrefs);
+        ArrayList<Task> list = sharedHistory.getList();
+
+        Log.d("the list array size BEFORE ADAPTER is : ", String.valueOf(list.size()));
 
         ListAdapter listAdapter = new ListAdapter(this, list);
         ListView listView = (ListView)findViewById(R.id.list);
