@@ -1,6 +1,8 @@
 package com.codeclan.todolist;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -8,12 +10,19 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class CreateNewTaskActivity extends AppCompatActivity {
 
-    EditText taskName;
-    EditText taskDescription;
-    EditText taskCategory;
-    Task newTask;
+    private EditText taskName;
+    private EditText taskDescription;
+    private EditText taskCategory;
+    private Task task;
+
+    public static final String TASKS = "MyTasks";
+    private SharedPreferences sharedPrefs;
+    private ListSharedHistory sharedHistory;
+    private ArrayList<Task> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +45,13 @@ public class CreateNewTaskActivity extends AppCompatActivity {
         String name = taskName.getText().toString();
         String description = taskDescription.getText().toString();
         String category = taskCategory.getText().toString();
+        task = new Task(name, description, category, false);
 
         //TO DO - got to actually save the new task...
+        sharedPrefs = getSharedPreferences(TASKS, Context.MODE_PRIVATE);
+        sharedHistory = new ListSharedHistory(sharedPrefs);
+        list = sharedHistory.getList();
+        sharedHistory.addTaskToList(list, task);
 
         Toast.makeText(CreateNewTaskActivity.this, "Task saved", Toast.LENGTH_SHORT).show();
 

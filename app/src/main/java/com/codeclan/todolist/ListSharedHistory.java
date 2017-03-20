@@ -54,12 +54,12 @@ public class ListSharedHistory {
 
             taskListManager = new TaskListManager(list);
             taskListManager.addTask(task);
-            ArrayList<Task> newList = new ArrayList<Task>();
-            newList = taskListManager.getList();
-            Gson gson = new Gson();
+            ArrayList<Task> sdList = new ArrayList<Task>();
+            sdList = taskListManager.getList();
 
+            Gson gson = new Gson();
             SharedPreferences.Editor editor = sharedPrefs.edit();
-            editor.putString("seedList", gson.toJson(newList));
+            editor.putString("seedList", gson.toJson(sdList));
             editor.apply();
         }
 
