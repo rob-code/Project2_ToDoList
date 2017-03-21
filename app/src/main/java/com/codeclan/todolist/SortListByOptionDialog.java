@@ -16,19 +16,16 @@ public class SortListByOptionDialog extends DialogFragment {
 
 
     private static final CharSequence[] sortOptions = {"Category", "Priority", "Do by Date"};
-    private Context context;
-
-    public SortListByOptionDialog(){
-        this.context = context;
-    }
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
-        this.setStyle(STYLE_NORMAL, 0);
+
         final Context context = getActivity();
 
+        this.setStyle(STYLE_NORMAL, 0);
         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
         builder.setTitle(R.string.sort);
         builder.setSingleChoiceItems(sortOptions, -1, new DialogInterface.OnClickListener() {
 
