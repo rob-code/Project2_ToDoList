@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -93,11 +94,14 @@ public class ListActivity extends AppCompatActivity {
         if (t.isDone()){
             item.setImageResource(R.drawable.ic_check_box_outline_blank_black_24dp);
             sharedHistory.markAsFalse(list, (Task) item.getTag());
+            Toast.makeText(ListActivity.this, "Task marked as To Do", Toast.LENGTH_SHORT).show();
         }
         else
         {
             item.setImageResource(R.drawable.ic_check_box_black_24dp);
             sharedHistory.markAsTrue(list, (Task) item.getTag());
+            Toast.makeText(ListActivity.this, "Task marked as complete", Toast.LENGTH_SHORT).show();
+
         }
 
         item.refreshDrawableState();
