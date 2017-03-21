@@ -1,8 +1,12 @@
 package com.codeclan.todolist;
 
+import android.app.Dialog;
+import android.app.FragmentManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -92,8 +96,11 @@ public class ListActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //present the sort options in an AlertDialog
     public void onSortListClicked(){
-        Toast.makeText(ListActivity.this, "Lets sort the listview", Toast.LENGTH_SHORT).show();
+        FragmentManager manager = getFragmentManager();
+        SortListByOptionDialog dialog = new SortListByOptionDialog();
+        dialog.show(manager, "What's this string for?");
     }
 
 

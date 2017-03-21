@@ -8,6 +8,6 @@
     <string name="create_description_hint">enter description</string>
     <string name="create_category_hint">enter category</string>
 
-    <string name="sort">Sort ...</string>
+    <string name="sort">Sort by ... </string>
 
 </resources>
