@@ -38,23 +38,23 @@ public class ShowTaskDetailsActivity extends AppCompatActivity {
         String category = extras.getString("category");
         Boolean isDone = extras.getBoolean("isDone");
 
-        taskName.setText(name);
-        taskDescription.setText(description);
-        taskCategory.setText(category);
-        taskIsDone.setText(isDone.toString());
+        String isDoneText = new String();
 
-//        if(isDone == true) {
-//            taskIsDone.setText(@string/task_complete);
-//        }
-//        else {
-//            taskIsDone.setText("Task is not done yet");
-//        }
+        if (isDone == true){
+            isDoneText = "The task is complete";
+        }
+        else {
+            isDoneText = "The task is incomplete";
+        }
+
+        taskName.setText("Task: " + name);
+        taskDescription.setText("Description: " + description);
+        taskCategory.setText("Category: " + category);
+        taskIsDone.setText("Status: " + isDoneText);
 
     }
 
-
     //AppBar with add new task action
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
