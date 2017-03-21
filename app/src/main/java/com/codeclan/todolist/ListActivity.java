@@ -71,15 +71,31 @@ public class ListActivity extends AppCompatActivity {
             case R.id.add_new_task:
                 onAddTaskClicked();
                 return true;
+            case R.id.sort:
+                onSortListClicked();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    //only show sort icon in AppBar in ListView
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+        menu.findItem(R.id.sort).setVisible(true);
+        return true;
     }
 
     public void onAddTaskClicked(){
         Intent intent = new Intent(this, CreateNewTaskActivity.class);
         startActivity(intent);
     }
+
+    public void onSortListClicked(){
+        Toast.makeText(ListActivity.this, "Lets sort the listview", Toast.LENGTH_SHORT).show();
+    }
+
 
     public void onChangeTaskCompleteStatusClicked(View view) {
 

@@ -7,4 +7,7 @@
     <string name="create_name_hint">enter name</string>
     <string name="create_description_hint">enter description</string>
     <string name="create_category_hint">enter category</string>
+
+    <string name="sort">Sort ...</string>
+
 </resources>
