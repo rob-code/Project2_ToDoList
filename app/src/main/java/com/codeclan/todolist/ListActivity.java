@@ -100,7 +100,12 @@ public class ListActivity extends AppCompatActivity {
     public void onSortListClicked(){
         FragmentManager manager = getFragmentManager();
         SortListByOptionDialog dialog = new SortListByOptionDialog();
-        dialog.show(manager, "What's this string for?");
+
+//        Bundle b = new Bundle();
+//
+//        dialog.setArguments(new Bundle());
+        dialog.show(manager, "Sort options");
+        //dialog.dismiss(); when the user has made their decision!
     }
 
 
