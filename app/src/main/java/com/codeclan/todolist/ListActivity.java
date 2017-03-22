@@ -22,12 +22,14 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class ListActivity extends AppCompatActivity implements SortListByOptionDialogFragment2.OnViewTypeSelected {
 //   public class ListActivity extends AppCompatActivity implements SortListByOptionDialogFragment.NoticeDialogListener {
 
     public static final String TASKS = "myTasks";
+    private static final CharSequence[] sortOptions = {"Category", "Priority", "Do by Date"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,6 +115,9 @@ public class ListActivity extends AppCompatActivity implements SortListByOptionD
 
     @Override
     public void onViewSelected(int index) {
+        if (index != -1) {
+            Toast.makeText(this, "View tasks by " + sortOptions[index], Toast.LENGTH_SHORT).show();
+        }
         Log.d("Dialog selected", "Dialog selected ! this" + String.valueOf(index));
     }
 

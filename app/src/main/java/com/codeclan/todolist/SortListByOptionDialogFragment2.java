@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 /**
  * Created by user on 22/03/2017.
@@ -42,12 +43,12 @@ public class SortListByOptionDialogFragment2 extends DialogFragment {
                 int idx = radioSortGroup.indexOfChild(radioButton);
                 mCallback.onViewSelected(idx);
 
+
                 if (idx != -1) {
                     dismiss();
                 }
             }
         });
-
         return rootView;
     }
 
