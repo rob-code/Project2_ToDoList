@@ -31,15 +31,6 @@ public class SortListByOptionDialogFragment2 extends DialogFragment {
         View rootView = inflater.inflate(R.layout.sort_view_option_layout, container, false);
         getDialog().setTitle("Sort by ...");
 
-        Button dismiss = (Button) rootView.findViewById(R.id.dismiss);
-        dismiss.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                dismiss();
-            }
-        });
-
         final RadioGroup radioSortGroup = (RadioGroup)rootView.findViewById(R.id.radioGroup);
         Button viewSelectButton = (Button)rootView.findViewById(R.id.select);
 
@@ -50,7 +41,11 @@ public class SortListByOptionDialogFragment2 extends DialogFragment {
                 View radioButton = radioSortGroup.findViewById(selectedId);
                 int idx = radioSortGroup.indexOfChild(radioButton);
                 mCallback.onViewSelected(idx);
-             }
+
+                if (idx != -1) {
+                    dismiss();
+                }
+            }
         });
 
         return rootView;
