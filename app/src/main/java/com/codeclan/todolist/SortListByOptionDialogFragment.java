@@ -17,66 +17,49 @@ import android.widget.Toast;
 
 public class SortListByOptionDialogFragment extends DialogFragment {
 
+
+    public interface OnViewTypeSelected {
+        public void onViewSelected(int index);
+    }
+
     private static final CharSequence[] sortOptions = {"Category", "Priority", "Do by Date"};
-
-
-
-
-
-
-//    // Use this instance of the interface to deliver action events
-//        public interface NoticeDialogListener {
-//             public void onClick(DialogFragment dialog);
-//         }
-
-        public void onClick(DialogFragment dialog) {
-           // NoticeDialogListener mListener;
-
-            Log.d("Dialog selected", "Dialog selected");
-        }
+    OnViewTypeSelected mCallback;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-
-        final Context context = getActivity();
-
-        this.setStyle(STYLE_NORMAL, 0);
-        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(R.string.sort);
         builder.setSingleChoiceItems(sortOptions, -1, new DialogInterface.OnClickListener() {
 
             public void onClick(DialogInterface dialog, int item){
-                Toast.makeText(context, "Sort by " + sortOptions[item], Toast.LENGTH_SHORT).show();
-                Log.d("got to selection", "got to selection");
-                dialog.dismiss();
+
+                Log.d("Item is " + item, "Item is" + item);
+
+                mCallback.onViewSelected(item);
+
+                if (item != -1) {
+                    dialog.dismiss();
+                }
             }
 
         });
-        return builder.create();
+        return builder.show();
     }
 
 
-//    //Override the Fragment.onAttach() method to instantiate the NoticeDialogListener
-//    @Override
-//    public void onAttach(Activity activity) {
-//        super.onAttach(activity);
-//        // Verify that the host activity implements the callback interface
-//        try {
-//            // Instantiate the NoticeDialogListener so we can send events to the host
-//         //   mListener = (NoticeDialogListener) activity;
-//        } catch (ClassCastException e) {
-//            // The activity doesn't implement the interface, throw exception
-//            throw new ClassCastException(activity.toString()
-//                    + " must implement NoticeDialogListener");
-//        }
-//    }
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
 
-
-
-
-
-
+        // This makes sure that the container activity has implemented
+        // the callback interface. If not, it throws an exception
+        try {
+            mCallback = (OnViewTypeSelected) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString()
+                    + " must implement OnViewTypeSelected");
+        }
+    }
 
 
 }
