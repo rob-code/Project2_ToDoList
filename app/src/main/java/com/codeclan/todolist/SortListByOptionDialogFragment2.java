@@ -43,8 +43,6 @@ public class SortListByOptionDialogFragment2 extends DialogFragment {
         final RadioGroup radioSortGroup = (RadioGroup)rootView.findViewById(R.id.radioGroup);
         Button viewSelectButton = (Button)rootView.findViewById(R.id.select);
 
-        RadioButton selectedRadioButton;
-
         viewSelectButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
