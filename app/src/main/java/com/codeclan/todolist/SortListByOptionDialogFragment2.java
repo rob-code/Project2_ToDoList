@@ -20,7 +20,7 @@ import android.widget.Toast;
 
 public class SortListByOptionDialogFragment2 extends DialogFragment {
 
-    final Context context = getActivity();
+    //final Context context = getActivity();
     OnViewTypeSelected mCallback;
 
     public interface OnViewTypeSelected{
@@ -32,17 +32,16 @@ public class SortListByOptionDialogFragment2 extends DialogFragment {
         View rootView = inflater.inflate(R.layout.sort_view_option_layout, container, false);
         getDialog().setTitle("Sort by ...");
 
-        final RadioGroup radioSortGroup = (RadioGroup)rootView.findViewById(R.id.radioGroup);
+        final RadioGroup radioGroup = (RadioGroup)rootView.findViewById(R.id.radioGroup);
         Button viewSelectButton = (Button)rootView.findViewById(R.id.select);
 
         viewSelectButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int selectedId = radioSortGroup.getCheckedRadioButtonId();
-                View radioButton = radioSortGroup.findViewById(selectedId);
-                int idx = radioSortGroup.indexOfChild(radioButton);
+                int selectedId = radioGroup.getCheckedRadioButtonId();
+                View groupView = radioGroup.findViewById(selectedId);
+                int idx = radioGroup.indexOfChild(groupView);
                 mCallback.onViewSelected(idx);
-
 
                 if (idx != -1) {
                     dismiss();

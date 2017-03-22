@@ -26,7 +26,6 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class ListActivity extends AppCompatActivity implements SortListByOptionDialogFragment2.OnViewTypeSelected {
-//   public class ListActivity extends AppCompatActivity implements SortListByOptionDialogFragment.NoticeDialogListener {
 
     public static final String TASKS = "myTasks";
     private static final CharSequence[] sortOptions = {"category", "priority", "do by date"};
@@ -38,14 +37,6 @@ public class ListActivity extends AppCompatActivity implements SortListByOptionD
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.app_bar_menu);
         setSupportActionBar(myToolbar);
-
-        if(getIntent().getExtras() !=null) {
-
-            Intent intent = getIntent();
-            Bundle extras = intent.getExtras();
-            int index = extras.getInt("index");
-            Log.d("extras passed in", "index is" + String.valueOf(index));
-        }
 
         SharedPreferences sharedPrefs = getSharedPreferences(TASKS, Context.MODE_PRIVATE);
         ListSharedHistory sharedHistory = new ListSharedHistory(sharedPrefs);
@@ -106,7 +97,7 @@ public class ListActivity extends AppCompatActivity implements SortListByOptionD
         startActivity(intent);
     }
 
-    //present the sort options in an AlertDialog
+    //present the "sort by" options in an AlertDialog
     public void onSortListClicked(){
         FragmentManager manager = getFragmentManager();
         SortListByOptionDialogFragment2 dialog = new SortListByOptionDialogFragment2();
@@ -118,7 +109,9 @@ public class ListActivity extends AppCompatActivity implements SortListByOptionD
         if (index != -1) {
             Toast.makeText(this, "View tasks by " + sortOptions[index], Toast.LENGTH_SHORT).show();
         }
-        Log.d("Dialog selected", "Dialog selected ! this" + String.valueOf(index));
+
+        //redraw ListView with appropriately ordered ArrayList
+        Log.d("Dialog index selected", "Dialog index selected : " + String.valueOf(index));
     }
 
     public void onChangeTaskCompleteStatusClicked(View view) {
