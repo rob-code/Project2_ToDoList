@@ -1,12 +1,11 @@
 package com.codeclan.todolist;
 
-import android.app.Dialog;
+import android.app.DialogFragment;
 import android.app.FragmentManager;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v7.app.AlertDialog;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -15,17 +14,18 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
 import java.util.ArrayList;
 
-public class ListActivity extends AppCompatActivity {
+public class ListActivity extends AppCompatActivity implements SortListByOptionDialogFragment2.OnViewTypeSelected {
+//   public class ListActivity extends AppCompatActivity implements SortListByOptionDialogFragment.NoticeDialogListener {
 
     public static final String TASKS = "myTasks";
 
@@ -36,6 +36,14 @@ public class ListActivity extends AppCompatActivity {
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.app_bar_menu);
         setSupportActionBar(myToolbar);
+
+        if(getIntent().getExtras() !=null) {
+
+            Intent intent = getIntent();
+            Bundle extras = intent.getExtras();
+            int index = extras.getInt("index");
+            Log.d("extras passed in", "index is" + String.valueOf(index));
+        }
 
         SharedPreferences sharedPrefs = getSharedPreferences(TASKS, Context.MODE_PRIVATE);
         ListSharedHistory sharedHistory = new ListSharedHistory(sharedPrefs);
@@ -99,8 +107,13 @@ public class ListActivity extends AppCompatActivity {
     //present the sort options in an AlertDialog
     public void onSortListClicked(){
         FragmentManager manager = getFragmentManager();
-        SortListByOptionDialog dialog = new SortListByOptionDialog();
+        SortListByOptionDialogFragment2 dialog = new SortListByOptionDialogFragment2();
         dialog.show(manager, "Sort options");
+    }
+
+    @Override
+    public void onViewSelected(int index) {
+        Log.d("Dialog selected", "Dialog selected ! this" + String.valueOf(index));
     }
 
     public void onChangeTaskCompleteStatusClicked(View view) {
@@ -129,5 +142,6 @@ public class ListActivity extends AppCompatActivity {
         item.refreshDrawableState();
 
     }
+
 
 }
