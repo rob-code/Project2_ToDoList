@@ -61,7 +61,7 @@ public class SortListByOptionDialogFragment2 extends DialogFragment {
             mCallback = (OnViewTypeSelected) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
-                    + " must implement OnHeadlineSelectedListener");
+                    + " must implement OnViewTypeSelected");
         }
     }
 
