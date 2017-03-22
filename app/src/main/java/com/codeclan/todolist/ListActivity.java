@@ -29,7 +29,7 @@ public class ListActivity extends AppCompatActivity implements SortListByOptionD
 //   public class ListActivity extends AppCompatActivity implements SortListByOptionDialogFragment.NoticeDialogListener {
 
     public static final String TASKS = "myTasks";
-    private static final CharSequence[] sortOptions = {"Category", "Priority", "Do by Date"};
+    private static final CharSequence[] sortOptions = {"category", "priority", "do by date"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
