@@ -20,7 +20,6 @@ import android.widget.Toast;
 
 public class SortListByOptionDialogFragment2 extends DialogFragment {
 
-    //final Context context = getActivity();
     OnViewTypeSelected mCallback;
 
     public interface OnViewTypeSelected{
