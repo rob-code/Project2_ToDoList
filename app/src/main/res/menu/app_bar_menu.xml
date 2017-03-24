@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
-
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
     <item android:id="@+id/sort"
         android:title="Sort"
         android:icon="@drawable/ic_sort_black_24dp"
@@ -10,7 +9,6 @@
         android:visible="false"
         app:showAsAction="always"
         />
-
 
     <item
         android:id="@+id/add_new_task"
@@ -20,7 +18,6 @@
         android:visible="true"
         app:showAsAction="always"
         />
-
 
     </menu>
 

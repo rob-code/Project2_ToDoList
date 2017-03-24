@@ -7,22 +7,25 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-        >
-        <!--android:theme="@style/AppTheme"-->
+        android:theme="@style/ToDoListTheme">
 
+        <!--android:theme="@style/Theme.AppCompat.Light.NoActionBar"-->
 
-
-
-        <activity android:name=".ListActivity">
+        <activity
+            android:name=".ListActivity"
+            android:label="Tasks">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CreateNewTaskActivity" />
-        <activity android:name=".ShowTaskDetailsActivity"></activity>
+        <activity
+            android:name=".CreateNewTaskActivity"
+            android:label="Create New Task"/>
+        <activity
+            android:name=".ShowTaskDetailsActivity"
+            android:label="Details">
+        </activity>
     </application>
 
 </manifest>

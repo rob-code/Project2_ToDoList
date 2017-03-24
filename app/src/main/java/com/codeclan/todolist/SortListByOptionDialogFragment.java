@@ -17,12 +17,11 @@ import android.widget.Toast;
 
 public class SortListByOptionDialogFragment extends DialogFragment {
 
-
     public interface OnViewTypeSelected {
         public void onViewSelected(int index);
     }
 
-    private static final CharSequence[] sortOptions = {"Category", "Priority", "Do by Date"};
+    private static final CharSequence[] sortOptions = {"Category", "Priority", "Do by date"};
     OnViewTypeSelected mCallback;
 
     @Override
@@ -32,8 +31,6 @@ public class SortListByOptionDialogFragment extends DialogFragment {
         builder.setSingleChoiceItems(sortOptions, -1, new DialogInterface.OnClickListener() {
 
             public void onClick(DialogInterface dialog, int item){
-
-                Log.d("Item is " + item, "Item is" + item);
 
                 mCallback.onViewSelected(item);
 
