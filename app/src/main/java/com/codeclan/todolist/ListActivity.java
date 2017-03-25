@@ -22,7 +22,7 @@ import java.util.ArrayList;
 public class ListActivity extends AppCompatActivity implements SortListByOptionDialogFragment2.OnViewTypeSelected {
 
     public static final String TASKS = "myTasks";
-    private static final CharSequence[] sortOptions = {"category", "priority", "do by date"};
+    private static final CharSequence[] sortOptions = {"category", "priority", "do by date", "done/not done"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

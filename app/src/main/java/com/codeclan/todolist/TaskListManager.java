@@ -66,7 +66,25 @@ public class TaskListManager {
         list.set(list.indexOf(oldTask), newTask);
     }
 
-
+//    public ArrayList<Task> listSortedByCategory() {
+//
+//        return;
+//    }
+//
+//    public ArrayList<Task> listSortedByPriority() {
+//
+//        return;
+//    }
+//
+//    public ArrayList<Task> listSortedByDate() {
+//
+//        return;
+//    }
+//
+//    public ArrayList<Task> listSortedByDoneNotDone() {
+//
+//        return;
+//    }
 
 
 }
