@@ -19,7 +19,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class ListActivity extends AppCompatActivity implements SortListByOptionDialogFragment2.OnViewTypeSelected {
+public class ListActivity extends AppCompatActivity implements SortListByOptionDialogFragment.OnViewTypeSelected {
 
     public static final String TASKS = "myTasks";
     private static final CharSequence[] sortOptions = {"category", "priority", "do by date", "done/not done"};
@@ -94,7 +94,7 @@ public class ListActivity extends AppCompatActivity implements SortListByOptionD
     //present the "sort by" options in an AlertDialog
     public void onSortListClicked(){
         FragmentManager manager = getFragmentManager();
-        SortListByOptionDialogFragment2 dialog = new SortListByOptionDialogFragment2();
+        SortListByOptionDialogFragment dialog = new SortListByOptionDialogFragment();
         dialog.show(manager, "Sort options");
     }
 

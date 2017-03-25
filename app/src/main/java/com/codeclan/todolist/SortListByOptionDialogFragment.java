@@ -21,7 +21,7 @@ public class SortListByOptionDialogFragment extends DialogFragment {
         public void onViewSelected(int index);
     }
 
-    private static final CharSequence[] sortOptions = {"Category", "Priority", "Do by date, Done/NotDone"};
+    private static final CharSequence[] sortOptions = {"Category", "Priority", "Do by date", "Done/Not Done"};
     OnViewTypeSelected mCallback;
 
     @Override
