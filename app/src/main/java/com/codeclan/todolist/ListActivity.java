@@ -23,6 +23,8 @@ public class ListActivity extends AppCompatActivity implements SortListByOptionD
 
     public static final String TASKS = "myTasks";
     private static final CharSequence[] sortOptions = {"category", "priority", "do by date", "done/not done"};
+    ArrayList<Task> list;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +36,7 @@ public class ListActivity extends AppCompatActivity implements SortListByOptionD
 
         SharedPreferences sharedPrefs = getSharedPreferences(TASKS, Context.MODE_PRIVATE);
         ListSharedHistory sharedHistory = new ListSharedHistory(sharedPrefs);
-        ArrayList<Task> list = sharedHistory.getList();
+        list = sharedHistory.getList();
 
         ListAdapter listAdapter = new ListAdapter(this, list);
         ListView listView = (ListView)findViewById(R.id.list);
@@ -104,8 +106,23 @@ public class ListActivity extends AppCompatActivity implements SortListByOptionD
             Toast.makeText(this, "View tasks by " + sortOptions[index], Toast.LENGTH_SHORT).show();
         }
 
+        switch (index){
+            case 0:
+
+            case 1:
+
+            case 2:
+
+            case 3:
+
+            default:
+                Toast.makeText(this, "This view has not been implemented", Toast.LENGTH_SHORT).show();
+        }
+
+
         //redraw ListView with appropriately ordered ArrayList
         Log.d("Dialog index selected", "Dialog index selected : " + String.valueOf(index));
+
     }
 
     public void onChangeTaskCompleteStatusClicked(View view) {

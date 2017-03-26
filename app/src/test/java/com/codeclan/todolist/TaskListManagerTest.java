@@ -125,7 +125,7 @@ public class TaskListManagerTest {
     public void canSortListByCategory(){
         testList = listManager.getList();
         for (int i = 0; i < testList.size(); i++){
-          //  System.out.println(testList.get(i).getName() + " " + testList.get(i).getDescription());
+            System.out.println(testList.get(i).getName() + " " + testList.get(i).getDescription());
         }
 
         System.out.println(" ");
@@ -135,7 +135,7 @@ public class TaskListManagerTest {
 
         testList = listManager.getList();
         for (int i = 0; i < testList.size(); i++){
-         //   System.out.println(testList.get(i).getName() + " " + testList.get(i).getDescription());
+            System.out.println(testList.get(i).getName() + " " + testList.get(i).getDescription());
         }
 
     }
