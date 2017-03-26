@@ -1,6 +1,8 @@
 package com.codeclan.todolist;
 
 
+import java.util.Comparator;
+
 public class Task {
 
     private String name;
@@ -48,8 +50,19 @@ public class Task {
         this.done = done;
     }
 
+    public static Comparator<Task> categoryComparator = new Comparator<Task>(){
+        @Override
+        public int compare(Task task1, Task task2) {
+            return (int) (task1.getCategory().compareTo(task2.getCategory()));
+        }
+    };
 
-
+    public static Comparator<Task> isDoneComparator = new Comparator<Task>(){
+        @Override
+        public int compare(Task task1, Task task2) {
+            return (int) (task1.isDone().compareTo(task2.isDone()));
+        }
+    };
 
 
 

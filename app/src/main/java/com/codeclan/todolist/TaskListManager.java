@@ -1,6 +1,7 @@
 package com.codeclan.todolist;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class TaskListManager {
 
@@ -66,25 +67,27 @@ public class TaskListManager {
         list.set(list.indexOf(oldTask), newTask);
     }
 
-//    public ArrayList<Task> listSortedByCategory() {
+    public ArrayList<Task> sortByCategory() {
+        Collections.sort(list, Task.categoryComparator);
+        return list;
+    }
+
+    public ArrayList<Task> sortByIsDone() {
+        Collections.sort(list, Task.isDoneComparator);
+        return list;
+    }
+
+//    public ArrayList<Task> sortByPriority() {
 //
 //        return;
 //    }
 //
-//    public ArrayList<Task> listSortedByPriority() {
+//    public ArrayList<Task> sortByDate() {
 //
 //        return;
 //    }
 //
-//    public ArrayList<Task> listSortedByDate() {
-//
-//        return;
-//    }
-//
-//    public ArrayList<Task> listSortedByDoneNotDone() {
-//
-//        return;
-//    }
+
 
 
 }
