@@ -103,26 +103,27 @@ public class ListActivity extends AppCompatActivity implements SortListByOptionD
 
     @Override
     public void onViewSelected(int index) {
-        if (index != -1) {
-            Toast.makeText(this, "View tasks by " + sortOptions[index], Toast.LENGTH_SHORT).show();
-        }
 
         listManager = new TaskListManager(list);
 
         switch (index){
-            case 0: //Category
+            case 0:
                 list = listManager.sortByCategory();
-                listAdapter.notifyDataSetChanged();
-
+                break;
             case 1: //Priority
 
             case 2: //DoByDate
 
-            case 3: //IsDone
+            case 3:
                 list = listManager.sortByIsDone();
-                listAdapter.notifyDataSetChanged();
-
+                break;
         }
+
+        if (0 <= index && index <= 3 ) {
+            Toast.makeText(this, "View tasks by " + sortOptions[index], Toast.LENGTH_SHORT).show();
+            listAdapter.notifyDataSetChanged();
+        }
+
 
 
 
